@@ -53,6 +53,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_ELECTRON_BEAM_ANIMATION_OFF = "electron_beam_animation_off";
     private static final String KEY_ELECTRON_BEAM_CATEGORY_ANIMATION = "category_animation_options";
     private static final String KEY_VOLUME_WAKE = "pref_volume_wake";
+    private static final String KEY_HDMI_RESOLUTION = "hdmi_resolution";
 
     private static final String ROTATION_ANGLE_0 = "0";
     private static final String ROTATION_ANGLE_90 = "90";
@@ -71,6 +72,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private ListPreference mScreenTimeoutPreference;
     private PreferenceScreen mDisplayRotationPreference;
     private PreferenceScreen mAutomaticBacklightPreference;
+
+    private ListPreference mHdmiResolution;
 
     private ContentObserver mAccelerometerRotationObserver = new ContentObserver(new Handler()) {
         @Override
@@ -124,6 +127,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             }
         }
 
+
         mElectronBeamAnimationOn = (CheckBoxPreference) findPreference(KEY_ELECTRON_BEAM_ANIMATION_ON);
         mElectronBeamAnimationOff = (CheckBoxPreference) findPreference(KEY_ELECTRON_BEAM_ANIMATION_OFF);
         mElectronBeamAnimationOn.setChecked(Settings.System.getInt(resolver,
@@ -145,9 +149,19 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         } else {
             getPreferenceScreen().removePreference(mElectronBeamAnimationOff);
         }
+
         if(getResources().getInteger(com.android.internal.R.integer.config_screenOnAnimation) < 0 &&
               !getResources().getBoolean(com.android.internal.R.bool.config_screenOffAnimation)) {
             getPreferenceScreen().removePreference((PreferenceCategory) findPreference(KEY_ELECTRON_BEAM_CATEGORY_ANIMATION));
+        }
+
+        mHdmiResolution = (ListPreference) findPreference(KEY_HDMI_RESOLUTION);
+        if(mHdmiResolution != null){
+            mHdmiResolution.setOnPreferenceChangeListener(this);
+            String value = Settings.System.getString(getContentResolver(),
+                    Settings.System.HDMI_RESOLUTION);
+            mHdmiResolution.setValue(value);
+            updateHdmiResolutionSummary(value);
         }
 
         mVolumeWake = (CheckBoxPreference) findPreference(KEY_VOLUME_WAKE);
@@ -283,6 +297,17 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         getContentResolver().unregisterContentObserver(mAccelerometerRotationObserver);
     }
 
+    private void updateHdmiResolutionSummary(Object value){       
+        CharSequence[] summaries = getResources().getTextArray(R.array.hdmi_resolution_summaries);
+        CharSequence[] values = mHdmiResolution.getEntryValues();
+        for (int i=0; i<values.length; i++) {
+            if (values[i].equals(value)) {
+                mHdmiResolution.setSummary(summaries[i]);
+                break;
+            }
+        }
+    }
+
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mBatteryPulse) {
@@ -315,6 +340,17 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 updateTimeoutPreferenceDescription(value);
             } catch (NumberFormatException e) {
                 Log.e(TAG, "could not persist screen timeout setting", e);
+            }
+        }
+         if (KEY_HDMI_RESOLUTION.equals(key))
+        {
+            String value = String.valueOf(objValue);
+            try {
+                Settings.System.putString(getContentResolver(), 
+                        Settings.System.HDMI_RESOLUTION, value);
+                updateHdmiResolutionSummary(objValue);
+            }catch (NumberFormatException e) {
+                Log.e(TAG, "could not persist key hdmi resolution setting", e);
             }
         }
         return true;

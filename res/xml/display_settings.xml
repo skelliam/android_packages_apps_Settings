@@ -52,6 +52,13 @@
             android:title="@string/battery_pulse_title"
             android:persistent="false" />
 
+        <ListPreference
+            android:key="hdmi_resolution"
+            android:title="@string/hdmi_resolution_title"
+            android:persistent="false"
+            android:entries="@array/hdmi_resolution_entries"
+            android:entryValues="@array/hdmi_resolution_values" />
+
         <PreferenceCategory
             android:key="category_animation_options"
             android:title="@string/display_category_animation_options_title"/>
