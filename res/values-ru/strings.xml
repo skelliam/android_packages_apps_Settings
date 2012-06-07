@@ -293,7 +293,8 @@
     <string name="lock_after_timeout_summary" msgid="6128431871360905631">"После <xliff:g id="TIMEOUT_STRING">%1$s</xliff:g> спящего режима"</string>
     <string name="show_owner_info_on_lockscreen_label" msgid="5074906168357568434">"Показывать данные о владельце на экране блокировки"</string>
     <string name="owner_info_settings_title" msgid="2723190010708381889">"Сведения о владельце"</string>
-    <string name="owner_info_settings_summary" msgid="3800834657847339570"></string>
+    <string name="owner_info_settings_summary">Данные о владельце на экране блокировки</string>
+    <string name="owner_info_settings_enabled">Включено</string>
     <string name="owner_info_settings_edit_text_hint" msgid="4608681417960923911">"Введите текст для показа на экране блокировки"</string>
     <string name="location_settings_title" msgid="8935806698251432196">"Мое местоположение"</string>
     <string name="security_settings_title" msgid="7945465324818485460">"Безопасность"</string>
@@ -966,6 +967,7 @@
     <string name="lockpattern_settings_help_how_to_record" msgid="2614673439060830433">"Как начертить графический ключ разблокировки"</string>
     <string name="lockpattern_too_many_failed_confirmation_attempts_header" msgid="819903817323783498">"Слишком много неудачных попыток!"</string>
     <string name="lockpattern_too_many_failed_confirmation_attempts_footer" msgid="6759029360597122873">"Повторите попытку через <xliff:g id="NUMBER">%d</xliff:g> с."</string>
+    <string name="lockpattern_settings_enable_lock_before_unlock">Показывать виджеты до разблокировки</string>
     <string name="skip_button_label" msgid="8680422740354436943">"Отмена"</string>
     <string name="next_button_label" msgid="8890792540116568321">"Далее"</string>
     <string name="lock_title" product="tablet" msgid="2909697418179419990">"Безопасность планшетного ПК"</string>
@@ -1119,6 +1121,9 @@
     <string name="spellchecker_security_warning" msgid="9060897418527708922">"Для проверки орфографии будет использоваться приложение <xliff:g id="SPELLCHECKER_APPLICATION_NAME">%1$s</xliff:g>, которое может собирать все вводимые данные, в том числе пароли и номера кредитных карт. Продолжить?"</string>
     <string name="pointer_settings_category" msgid="8183819795164034286">"Мышь и сенсорная панель"</string>
     <string name="pointer_speed" msgid="1221342330217861616">"Скорость указателя"</string>
+    <!-- Whether to display IME switcher notifcation -->
+    <string name="ime_switcher_notify">Уведомление о выборе</string>
+    <string name="ime_switcher_notify_summary">Показывать уведомление выбора способа ввода</string>
     <string name="user_dict_settings_titlebar" msgid="765659257455000490">"Словарь пользователя"</string>
     <string name="user_dict_single_settings_title" msgid="524997218433540614">"Пользовательский словарь"</string>
     <string name="user_dict_multiple_settings_title" msgid="3735224433307996276">"Пользовательские словари"</string>
@@ -1737,7 +1742,7 @@
     <!-- Navigation Bar #CM -->
     <string name="navigation_bar_title">Строка навигации</string>
 
-    <string name="navigation_bar_help_text">1 - Для редактирования, нажмите значок замка\n\n2 - Нажмите любую кнопку, чтобы задать или изменить функциональность\n\n3 - Долгим нажатием на любой кнопке можно изменить её порядок\n\n4 - Для сохранения нажмите на значок замка\n\n5 - Для сброса настроек, нажмите кнопку сброса\n\n</string>
+    <string name="navigation_bar_help_text">1 - Для редактирования, нажмите значок замка\n2 - Нажмите любую кнопку, чтобы задать или изменить функциональность\n3 - Долгим нажатием на любой кнопке можно изменить её порядок\n4 - Для сохранения нажмите на значок замка\n5 - Для сброса настроек, нажмите кнопку сброса\n</string>
     <string name="navigation_bar_tips">&#8226; Одно действие может быть назначено только на одну кнопку\n\n&#8226; Кнопка Домой не может быть изменена\n\n&#8226; Боковые кнопки не могут быть изменены</string>
     <string name="navigation_bar_tips_title">Быстрые подсказки</string>
     <string name="navigation_bar_reset_message">Удалить текущие настройки и восстановить значения по умолчанию?</string>
@@ -1809,6 +1814,7 @@
     <string name="status_bar_show_clock_summary">Показывать часы в строке состояния</string>
     <string name="status_bar_am_pm_title">Стиль AM/PM</string>
     <string name="status_bar_am_pm_summary">Стиль отображения AM/PM рядом с часами</string>
+    <string name="status_bar_am_pm_info">Включен 24-часовой формат</string>
     <string name="status_bar_battery_title">Стиль батареи</string>
     <string name="status_bar_battery_summary">Стиль отображения заряда аккумулятора</string>
     <string name="status_bar_toggle_brightness">Управление яркостью</string>
@@ -1830,8 +1836,66 @@
     <string name="lockscreen_target_reset_title">Сброс</string>
     <string name="lockscreen_target_reset_message">Удалить все созданные ярлыки экрана блокировки и восстановить значения по умолчанию?</string>
     <string name="lockscreen_target_empty">Пусто</string>
-    <string name="lockscreen_target_edit_title">Изменить ярлык</string>
+    <string name="lockscreen_target_edit_title">Изменить ярлык и иконку</string>
     <string name="lockscreen_target_edit_msg">Выберите или измените нужные приложения или действие и иконку</string>
+
+    <!-- Lock Screen Weather -->
+    <string name="lockscreen_weather_title">Погода</string>
+    <string name="lockscreen_weather_summary">Показывать информацию о погоде на экране блокировки</string>
+    <string name="lockscreen_weather_enabled">Включено</string>
+    <string name="weather_enable">Погода отображается</string>
+    <string name="weather_source">Yahoo! Weather</string>
+    <string name="weather_use_custom_location">Не определять автоматически</string>
+    <string name="weather_geolocated">Местоположение по сети</string>
+    <string name="weather_custom_location_dialog_title">Введите местоположение</string>
+    <string name="weather_custom_location_dialog_message">Внимание: название города вводится на английском языке. Ошибочно введённое местоположение не будет отображаться.</string>
+    <string name="weather_custom_location_hint">Город, штат/страна</string>
+    <string name="weather_custom_location_title">Местоположение</string>
+    <string name="weather_show_location_title">Показывать местоположение</string>
+    <string name="weather_show_timestamp_title">Показывать время</string>
+    <string name="weather_refresh_interval">Частота обновления</string>
+    <string name="weather_update">Обновить</string>
+    <string name="weather_use_metric">Метрическая система</string>
+    <string name="weather_refreshing">Обновление информации о погоде</string>
+    <string name="weather_retrieve_location_dialog_title">Не удаётся получить местоположение!</string>
+    <string name="weather_retrieve_location_dialog_message">Определение местоположения по сети выключено.\n\nВключите определение местоположения по сети или введите местоположение вручную.</string>
+    <string name="weather_retrieve_location_dialog_enable_button">Включить</string>
+    <string name="weather_invert_lowhigh">Изменить порядок температур</string>
+
+    <!-- Lock screen Weather - Update frequency -->
+    <string name="weather_refresh_manual">Вручную</string>
+    <string name="weather_refresh_30min">30 минут</string>
+    <string name="weather_refresh_60min">60 минут</string>
+    <string name="weather_refresh_2hrs">2 часа</string>
+    <string name="weather_refresh_4hrs">4 часа</string>
+    <string name="weather_refresh_6hrs">6 часов</string>
+    <string name="weather_refresh_8hrs">8 часов</string>
+
+    <!-- Lock screen Calendar -->
+    <string name="lockscreen_calendar_title">Календарь</string>
+    <string name="lockscreen_calendar_summary">Отображать на экране блокировки события из календаря</string>
+    <string name="lockscreen_calendar_enabled">Включено</string>
+    <string name="calendar_title">Показывать следующие события</string>
+    <string name="calendars_title">События календарей</string>
+    <string name="calendars_summary">Найти события из этих календарей</string>
+    <string name="calendar_reminders_only_title">Только с напоминаниями</string>
+    <string name="calendar_reminders_only_summary">Отображать только события с напоминаниями</string>
+    <string name="calendar_lookahead_title">Предпросмотр события</string>
+    <string name="calendar_show_location_title">Место проведения</string>
+    <string name="calendar_show_description_title">Описание события</string>
+
+    <!-- Lock screen calendar - lookahead -->
+    <string name="calendar_lookahead_3hrs">3 часа</string>
+    <string name="calendar_lookahead_6hrs">6 часов</string>
+    <string name="calendar_lookahead_12hrs">12 часов</string>
+    <string name="calendar_lookahead_1day">1 день</string>
+    <string name="calendar_lookahead_3days">3 дня</string>
+    <string name="calendar_lookahead_1wk">1 неделя</string>
+
+    <!-- Lock screen calendar - event metadata -->
+    <string name="calendar_metadata_none">Не показывать</string>
+    <string name="calendar_metadata_first_line">Показывать первую строку</string>
+    <string name="calendar_metadata_all">Показывать всё</string>
 
     <!-- Profiles settings #CM -->
     <string name="profiles_settings_title">Профили</string>
@@ -1971,6 +2035,10 @@
     <!-- time range preference -->
     <string name="start_time_title">Начало</string>
     <string name="end_time_title">Конец</string>
+
+    <!-- Safe headset volume restore checkbox -->
+    <string name="safe_headset_restore_title">Безопасная громкость наушников</string>
+    <string name="safe_headset_restore_summary">Уменьшать громкость до 55% при первом подключении наушников</string>
 
     <!-- Performance settings #CM -->
     <string name="performance_settings_title">Производительность</string>
@@ -2113,6 +2181,11 @@
 
     <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"Дополнительные обновления системы"</string>
 
+    <!-- Electron Beam -->
+    <string name="display_category_animation_options_title">Анимация</string>
+    <string name="display_electron_beam_animation_on_title">Анимация вкл. экрана</string>
+    <string name="display_electron_beam_animation_off_title">Анимация выкл. экрана</string>
+
     <!-- String for ShortcutPickHelper -->
     <string name="picker_activities">Действия</string>
     <string name="select_custom_app_title">Выбрать собственное приложение</string>
@@ -2142,4 +2215,11 @@
     <string name="icon_picker_system_icons_title">Системные иконки</string>
     <string name="icon_picker_gallery_title">Галерея</string>
     <string name="icon_picker_pack_title">Набор иконок</string>
+
+    <!-- Stylus Icon -->
+    <string name="stylus_icon_enabled_title">Значок стилуса</string>
+    <string name="stylus_icon_enabled_summary">Показывать значок указателя при рисовании или управлении стилусом</string>
+
+    <!-- Hostname setting -->
+    <string name="device_hostname">Имя хоста</string>
 </resources>
