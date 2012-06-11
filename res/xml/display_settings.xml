@@ -59,6 +59,13 @@
             android:entries="@array/hdmi_resolution_entries"
             android:entryValues="@array/hdmi_resolution_values" />
 
+        <ListPreference
+            android:key="accelerometer_coordinate"
+            android:title="@string/accelerometer_coordinate_title"
+            android:persistent="false"
+            android:entries="@array/accelerometer_entries"
+            android:entryValues="@array/accelerometer_values" />
+
         <PreferenceCategory
             android:key="category_animation_options"
             android:title="@string/display_category_animation_options_title"/>

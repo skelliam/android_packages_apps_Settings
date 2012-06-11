@@ -4467,6 +4467,9 @@ found in the list of installed apps.</string>
     <string name="additional_system_update_settings_list_item_title">Additional system updates</string>
     
     <string name="hdmi_resolution_title">HDMI resolution</string>
+   
+    <string name="accelerometer_coordinate_title">Accelerometer coordinate system</string>
+
 
     <!-- Electron Beam -->
     <string name="display_category_animation_options_title">Animation</string>

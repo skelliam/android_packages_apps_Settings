@@ -718,27 +718,42 @@
     </string-array>
 
     <string-array name="hdmi_resolution_entries">
-        <item >Auto</item>
-        <item >1080p 60hz</item>
-	<item >1080p 50hz</item>
-	<item >720p 60hz</item>
-	<item >720p 50hz</item>
+        <item>Auto</item>
+        <item>1080p 60hz</item>
+	<item>1080p 50hz</item>
+	<item>720p 60hz</item>
+	<item>720p 50hz</item>
     </string-array>
 
     <string-array name="hdmi_resolution_values">
-        <item >auto</item>
-        <item >1080_60</item>
-	<item >1080_50</item>
-	<item >720_60</item>
-	<item >720_50</item>
+        <item>auto</item>
+        <item>1080_60</item>
+	<item>1080_50</item>
+	<item>720_60</item>
+	<item>720_50</item>
     </string-array>
 
     <string-array name="hdmi_resolution_summaries">
-        <item >Automatic selection</item>
-        <item >Full HD resolution for NTSC contents</item>
-	<item >Full HD resolution for PAL contents</item>
-	<item >HD-Ready resolution for NTSC contents</item>
-	<item >HD-Ready resolution for PAL contents</item>
+        <item>Automatic selection</item>
+        <item>Full HD resolution for NTSC contents</item>
+	<item>Full HD resolution for PAL contents</item>
+	<item>HD-Ready resolution for NTSC contents</item>
+	<item>HD-Ready resolution for PAL contents</item>
+    </string-array>
+
+    <string-array name="accelerometer_entries">
+        <item>Default coordinate system</item>
+        <item>Special coordinate system, to support some other games.</item>
+    </string-array>
+    
+    <string-array name="accelerometer_values">
+        <item>default</item>
+        <item>special</item>
+    </string-array>
+    
+    <string-array name="accelerometer_summaries">
+        <item>Accelerometer uses the default coordinate system.</item>
+        <item>Accelerometer uses a special coordinate system, for some games.</item>
     </string-array>
 
     <!-- **** CYANOGENMOD EDITS START **** -->
