@@ -1411,6 +1411,8 @@
 
         <activity android:name=".profiles.NFCProfileWriter" />
 
+        <activity android:name=".profiles.NFCProfileSelect" />
+
         <activity android:name=".cyanogenmod.LockscreenTargets" />
 
         <activity android:name=".cyanogenmod.LockscreenInterface" />
