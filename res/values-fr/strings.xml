@@ -2143,4 +2143,9 @@
     <!-- no translation found for percentage (5866131581207788624) -->
     <skip />
     <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"Mises à jour supplémentaires du système"</string>
+
+    <!-- Proximity work-around -->
+    <string name="is_inaccurate_proximity_title">Capteur de proximité</string>
+    <string name="is_inaccurate_proximity_summary">Correctif pour le capteur de proximité, utiliser cette option pour obliger l\'écran à rester allumé après un appel.</string>
+
 </resources>

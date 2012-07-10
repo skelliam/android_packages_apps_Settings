@@ -54,7 +54,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_ELECTRON_BEAM_CATEGORY_ANIMATION = "category_animation_options";
     private static final String KEY_WAKEUP_CATEGORY = "category_wakeup_options";
     private static final String KEY_VOLUME_WAKE = "pref_volume_wake";
-
+    private static final String IS_INACCURATE_PROXIMITY = "is_inaccurate_proximity";
+    
     private static final String ROTATION_ANGLE_0 = "0";
     private static final String ROTATION_ANGLE_90 = "90";
     private static final String ROTATION_ANGLE_180 = "180";
@@ -65,6 +66,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private CheckBoxPreference mVolumeWake;
     private CheckBoxPreference mElectronBeamAnimationOn;
     private CheckBoxPreference mElectronBeamAnimationOff;
+    private CheckBoxPreference mInaccurateProximityPref;
     private PreferenceScreen mNotificationPulse;
     private PreferenceScreen mBatteryPulse;
 
@@ -148,6 +150,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         if(getResources().getInteger(com.android.internal.R.integer.config_screenOnAnimation) < 0 &&
               !getResources().getBoolean(com.android.internal.R.bool.config_screenOffAnimation)) {
             getPreferenceScreen().removePreference((PreferenceCategory) findPreference(KEY_ELECTRON_BEAM_CATEGORY_ANIMATION));
+        }
+
+        mInaccurateProximityPref = (CheckBoxPreference) findPreference(IS_INACCURATE_PROXIMITY);
+        if (mInaccurateProximityPref != null) {
+            mInaccurateProximityPref.setChecked(Settings.System.getInt(getContentResolver(),
+                    Settings.System.INACCURATE_PROXIMITY_WORKAROUND, 0) == 1);
         }
 
         mVolumeWake = (CheckBoxPreference) findPreference(KEY_VOLUME_WAKE);
@@ -313,6 +321,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(), Settings.System.VOLUME_WAKE_SCREEN,
                     mVolumeWake.isChecked() ? 1 : 0);
             return true;
+        } else if (preference == mInaccurateProximityPref) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.INACCURATE_PROXIMITY_WORKAROUND,
+                    mInaccurateProximityPref.isChecked() ? 1 : 0);
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);

@@ -739,6 +739,10 @@
     <!-- [CHAR LIMIT=40] Sound & display settings screen, title of dialog for picking font size -->
     <string name="dialog_title_font_size">Font size</string>
 
+    <!-- Proximity work-around -->
+    <string name="is_inaccurate_proximity_title">In-accurate proximity</string>
+    <string name="is_inaccurate_proximity_summary">Work-around for inaccurate proximity sensors, this will force phone to turn on the screen after the call is ended.</string>
+
     <!-- Battery light settings #CM -->
     <string name="battery_light_title">Battery light</string>
     <string name="battery_low_pulse_title">Pulse if battery low</string>

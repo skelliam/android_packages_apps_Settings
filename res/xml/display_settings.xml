@@ -52,6 +52,11 @@
             android:title="@string/battery_light_title"
             android:fragment="com.android.settings.notificationlight.BatteryLightSettings" />
 
+        <!-- Proximity wake workaround -->
+        <CheckBoxPreference android:key="is_inaccurate_proximity"
+            android:title="@string/is_inaccurate_proximity_title"
+            android:summary="@string/is_inaccurate_proximity_summary" />
+
         <PreferenceCategory
             android:key="category_animation_options"
             android:title="@string/display_category_animation_options_title"/>
